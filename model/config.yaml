@@ -1,0 +1,59 @@
+epochs: 
+  value: 200
+
+# Architecture
+use_spatio_temporal_unet:
+  value: True
+
+model_depth:
+  value: 4
+
+max_pool_time:
+  value: True
+
+final_activation:
+  value: "abs" 
+
+activation:
+  value:  "ELU"
+  
+# Dataset
+patient_list:
+  value:  {
+          "train": ["02", "07", "06", "10", "15", "21", "23", "27", "29"],  
+          "validation": ["01", "02", "14", "17", "18"], 
+          "test": ["28", "08", "20", "24", "25", "26", "03"]
+        }
+        
+slices_per_patient_train:
+  value: 75
+
+slices_per_patient_val:
+  value: 75
+
+slices_per_patient_test:
+  value: 500
+
+# Training options
+batch_norm: 
+  desc: Use of batch normalization
+  value: True
+
+learning_rate:
+  value: 0.0001
+
+batch_size: 
+  desc: Training and validation batch size
+  value: 2
+
+
+saved_checkpoint:
+  value: "dauntless-microwave-530/last.ckpt"
+
+
+# Logging
+log_freq:
+  value: 5
+
+val_freq:
+  value: 5
